@@ -1,14 +1,14 @@
 dnl Process this file with autoconf to produce a configure script.
 dnl $Id: configure.ac,v 1.11 2007/06/10 13:17:24 ryants Exp $
-AC_INIT(doxymacs, 1.8.0, http://sourceforge.net/projects/doxymacs)
+AC_INIT([doxymacs], [1.8.0], [http://sourceforge.net/projects/doxymacs])
 
 AC_PREREQ(2.57)
 
-AC_REVISION($Revision: 1.11 $)
+dnl AC_REVISION($Revision: 1.11 $)
 
 AC_CONFIG_SRCDIR(c/doxymacs_parser.c)
 
-AM_INIT_AUTOMAKE(doxymacs, 1.8.0)
+AM_INIT_AUTOMAKE([foreign -Wall -Werror tar-ustar])
 
 AC_PREFIX_DEFAULT(${HOME})
 
@@ -18,7 +18,7 @@ AC_PROG_INSTALL
 AM_PATH_LISPDIR
 
 dnl Checks for libraries.
-AM_PATH_XML2(2.6.13)
+PKG_CHECK_MODULES([LIBXML], [libxml-2.0])
 
 dnl Checks for header files.
 AC_HEADER_STDC
